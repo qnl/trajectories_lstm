@@ -16,7 +16,7 @@ To train the model we use a categorical cross entropy loss function, which penal
 ![Network structure](network_structure.png)
 
 ## Dataset
-The dataset (link). The data is a single h5 file with preparation states such as `prep_g` as groups and subgroups `meas_X`, `meas_Y` and `meas_Z`, which denote the measurement axis of the strong readout at the end of each trajectory. Each `meas_i` contains subkeys `t_n` where `n` indicates the length of the voltage records in units of strong readout intervals, and typically ranges from 0 to 40. The voltage records are found in `[meas_i/t_n/I_filtered]` and `[meas_i/t_n/Q_filtered]`.
+The dataset ([link](https://drive.google.com/drive/folders/1FNnrNAwe4NaeiUjSvbZOvkd-el_4MsxL?usp=sharing)). The data is a single h5 file with preparation states such as `prep_g` as groups and subgroups `meas_X`, `meas_Y` and `meas_Z`, which denote the measurement axis of the strong readout at the end of each trajectory. Each `meas_i` contains subkeys `t_n` where `n` indicates the length of the voltage records in units of strong readout intervals, and typically ranges from 0 to 40. The voltage records are found in `[meas_i/t_n/I_filtered]` and `[meas_i/t_n/Q_filtered]`.
 
 ## Setting parameters in `settings.yaml`
 The settings file contains all parameters that are used in `prep.py`, `train.py` and `analyze.py`. 
