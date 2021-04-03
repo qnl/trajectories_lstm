@@ -13,7 +13,7 @@ from visualization import plot_qubit_histogram, plot_qutrit_histogram, make_a_pi
 from verification import plot_qubit_verification, plot_qutrit_verification, pairwise_softmax, get_xyz
 import gc
 
-yaml_file = r"/home/qnl/Git-repositories/qnl_nonmarkov_ml/gate_diagnosis_lstm/settings.yaml"
+yaml_file = r"settings.yaml"
 settings = load_settings(yaml_file)
 
 print(tf.config.experimental.list_physical_devices('CPU'))

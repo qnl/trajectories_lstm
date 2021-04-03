@@ -13,7 +13,7 @@ settings = load_settings(r"settings.yaml")
 
 datapath = settings['voltage_records']['filepath'] # Path of the data
 dataname = settings['voltage_records']['filename'] # Filename of h5 file used to feed into prep.py
-filepath = os.path.join(datapath, 'analysis', settings['analysis']['subdir']) # Path of the trained trajectories
+filepath = os.path.join(settings['analysis']['subdir']) # Path of the trained trajectories
 
 trajectory_dt = settings['analysis']['trajectory_dt']
 multiple_prep_states = settings['voltage_records']['multiple_prep_states']

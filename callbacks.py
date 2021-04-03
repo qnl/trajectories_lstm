@@ -70,6 +70,7 @@ class TrainingPlot(tf.keras.callbacks.Callback):
                                  name='Validation_Accuracy',
                                  **kwargs)
 
+        # Important to keep memory usage under control.
         gc.collect()
 
 

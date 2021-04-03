@@ -11,11 +11,11 @@ analysis:
     - 100000.0
     - 0.0
     omega_fixed: false
-  subdir: /media/qnl/Extreme SSD/Continuous rabi drive/2020_09_24/cts_rabi_modulation_ge_amp_0.0080_mod_amp_0.0080/analysis/210402_150515_testing_trajectories_lstm
+  subdir: data/analysis/210403_125746_testing_trajectories_lstm
   sweep_time: true
   t_max: null
   t_min: null
-  trajectory_dt: 2.0e-08
+  trajectory_dt: 4.0e-08
   x_for_yz_fit: null
   y_for_xz_fit: null
   z_for_xy_fit: null
@@ -43,8 +43,8 @@ training:
   prep_state_from_ro: true
 voltage_records:
   data_points_for_prep_state: 2
-  filename: single_prep_state_dt_20ns_meas_XYZ.h5
-  filepath: /media/qnl/Extreme SSD/Continuous rabi drive/2020_09_24/cts_rabi_modulation_ge_amp_0.0080_mod_amp_0.0080
+  filename: single_prep_state_dt_40ns_meas_XYZ.h5
+  filepath: data
   multiple_prep_states: true
   n_levels: 2
   num_features: 2
