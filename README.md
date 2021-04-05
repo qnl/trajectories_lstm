@@ -16,7 +16,9 @@ To train the model we use a categorical cross entropy loss function, which penal
 ![Network structure](network_structure.png)
 
 ## Dataset
-The dataset ([link](https://drive.google.com/drive/folders/1FNnrNAwe4NaeiUjSvbZOvkd-el_4MsxL?usp=sharing)). The data is a single h5 file with preparation states such as `prep_g` as groups and subgroups `meas_X`, `meas_Y` and `meas_Z`, which denote the measurement axis of the strong readout at the end of each trajectory. Each `meas_i` contains subkeys `t_n` where `n` indicates the length of the voltage records in units of strong readout intervals, and typically ranges from 0 to 40. The voltage records are found in `[meas_i/t_n/I_filtered]` and `[meas_i/t_n/Q_filtered]`.
+**Download the dataset ([here](https://drive.google.com/drive/folders/1FNnrNAwe4NaeiUjSvbZOvkd-el_4MsxL?usp=sharing))**
+
+Brief explanation: Each folder contains a single h5 file with a particular Rabi drive strength. The structure of the h5 file has groups for each preparation states (e.g. `prep_g`) and subsequent subgroups `meas_X`, `meas_Y` and `meas_Z`, which denote the measurement axis of the strong readout at the end of each trajectory. Each `meas_i` contains subkeys `t_n` where `n` indicates the length of the voltage records in units of strong readout intervals, and typically ranges from 0 to 40. The voltage records are found in `[meas_i/t_n/I_filtered]` and `[meas_i/t_n/Q_filtered]`.
 
 ## Setting parameters in `settings.yaml`
 The settings file contains all parameters that are used in `prep.py`, `train.py` and `analyze.py`. 
@@ -45,9 +47,10 @@ The main settings are explained below.
 * `mask_value` : Replaces padded elements of the features and labels array with this value. Default: -1.0
 * `mini_batch_size` : Number of voltage records that pass through the network at the same time during a training epoch.
 
-## Workflow for training
-1. Make sure you have configured your settings in the yaml file per the instructions above.
-2.  To train trajectories, we start with setting up the visdom server. This lets you track training progress in real time, so run
+## Instructions to run the code
+1. Make sure you have downloaded the [training data](https://drive.google.com/drive/folders/1FNnrNAwe4NaeiUjSvbZOvkd-el_4MsxL?usp=sharing). 
+2. Make sure you have configured your settings in the yaml file per the instructions above.
+3. To train trajectories, we start with setting up the visdom server. This lets you track training progress in real time, so run
 ```python -m visdom.server```. Then open the visdom server in your browser at `localhost:8097`. 
 3. cd to the directory that contains the scripts `prep.py`, `train.py` and `analyze_multi_prep.py` and run ```python prep.py```. This splits the voltage records in a training and validation dataset and saves them to disk. Depending on the number of voltage records, this requires a few GB of free disk space, so a large SSD is preferred to speed up the saving and loading process.
 4. To initiate the training, make sure the your paths in train.py and settings are set appropriately, and run ```python train.py```. This starts the training. You can now track progress in your visdom server window at `localhost:8097`. 
